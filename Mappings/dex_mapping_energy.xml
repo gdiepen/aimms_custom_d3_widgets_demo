@@ -1,0 +1,7 @@
+<AimmsCSVMapping>
+    <RowMapping name="table1">
+        <ColumnMapping name="source" binds-to="iEnergyComponentSource"/>
+        <ColumnMapping name="target" binds-to="iEnergyComponentTarget"/>
+        <ColumnMapping name="value" maps-to="pEnergyFlow(iEnergyComponentSource,iEnergyComponentTarget)"/>
+    </RowMapping>
+</AimmsCSVMapping>

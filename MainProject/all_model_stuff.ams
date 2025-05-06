@@ -1,0 +1,157 @@
+## ams_version=1.0
+
+Section All_model_stuff {
+	Section Sankey_Diagrams {
+		Section Energy_Breakdown {
+			Procedure prImportSourceData {
+				Body: {
+					dex::AddMapping("CSVMapping", "Mappings/dex_mapping_energy.xml") ;
+					dex::ReadFromFile(
+					        "data/energy.csv",              ! data file
+					        "CSVMapping",                  ! mapping name, as specified in AddMapping
+					        1,                              ! empty identifiers
+					        1,                              ! empty range sets
+					        1                               ! reset 'iterative-binds-to'
+					);
+				}
+			}
+			Set sEnergyComponents {
+				Index: iEnergyComponentSource, iEnergyComponentTarget;
+			}
+			Parameter pEnergyFlow {
+				IndexDomain: (iEnergyComponentSource,iEnergyComponentTarget);
+			}
+		}
+		Section Simple_example {
+			Set sPersons {
+				Index: iPersonFrom, iPersonTo;
+				InitialData: {
+					{'Barry', 'Frodo', 'Elvis', 'Alice' , 'Sarah'}
+				}
+			}
+			Parameter pPersonMoneyFlow {
+				IndexDomain: (iPersonFrom,iPersonTo);
+				InitialData: {
+					data 
+					{ ( Barry, Elvis ) : 2,  ( Barry, Alice ) : 2,  ( Frodo, Elvis ) : 2,  ( Frodo, Sarah ) : 2,  ( Elvis, Alice ) : 2,
+					  ( Elvis, Sarah ) : 2,  ( Sarah, Alice ) : 4 }
+				}
+			}
+		}
+	}
+	Section Simple_barchart {
+		Procedure prUpdateBarChartData {
+			Body: {
+				if card(sSet) <= 3 then
+					if uniform(0,1) <= 0.5 then
+						sSet := ElementRange( 1, 3, prefix: "element-") ; 
+					else
+						sSet := ElementRange( 1, 4, prefix: "element-") ; 
+					endif ; 
+				
+				else
+					sSet := ElementRange( 1, card(sSet) + round(uniform(0,2)) - 1, prefix: "element-") ; 
+				endif  ; 
+				
+				pValue(iIndex) := Uniform(0,100) ;
+			}
+		}
+		Procedure prMainInitBarChart {
+			Body: {
+				sSet := ElementRange( 1, 4, prefix: "element-") ; 
+				
+				
+				pValue(iIndex) := Uniform(0,100) ;
+				
+				
+				webui::IdentifierTooltip('iPersonFrom') := "From" ; 
+				webui::IdentifierTooltip('iPersonTo') := "To" ; 
+				
+				webui::IdentifierElementText('iPersonFrom') := "From" ; 
+				webui::IdentifierElementText('iPersonTo') := "To" ;
+			}
+		}
+		ElementParameter epSelectedIndex {
+			Range: sSet;
+		}
+		Set sSet {
+			Index: iIndex;
+		}
+		Parameter pValue {
+			IndexDomain: iIndex;
+			Comment: "spStringValue(iIndex)";
+			webui::ItemTextIdentifier: spSetElementText(iIndex);
+			webui::TooltipIdentifier: spToolTip(iIndex);
+		}
+		StringParameter spToolTip {
+			IndexDomain: iIndex;
+			Definition: {
+				formatstring("Element \"%e\" has value %n", iIndex, pValue(iIndex))
+				+
+				if iIndex = epSelectedIndex then
+					"   (CURRENTLY SELECTED)"
+				endif
+			}
+		}
+		StringParameter spSetElementText {
+			IndexDomain: iIndex;
+			Definition: formatstring("Set Element \"%e\"", iIndex);
+		}
+	}
+	Section Geo_Chart {
+		StringParameter spProvincesGeoJson {
+			Definition: "/app-resources/resources/geojson/provincie_2024.geojson";
+		}
+		Set sProvinces {
+			Index: iProvince;
+			Definition: {
+				data {
+				'Drenthe',
+				'Flevoland',
+				'Friesland',
+				'Gelderland',
+				'Groningen',
+				'Limburg',
+				'Noord-Brabant',
+				'Noord-Holland',
+				'Overijssel',
+				'Utrecht',
+				'Zeeland',
+				'Zuid-Holland'
+				}
+			}
+		}
+		ElementParameter epSelectedProvince {
+			Range: sProvinces;
+		}
+		Parameter pProvinceInhabitants {
+			IndexDomain: iProvince;
+			InitialData: {
+				data 
+				{ Drenthe       :  504129,  Flevoland     :  450826,  Friesland     :  661904,  Gelderland    : 2149071,
+				  Groningen     :  601347,  Limburg       : 1133255,  Noord-Brabant : 2644739,  Noord-Holland : 2976487,
+				  Overijssel    : 1189033,  Utrecht       : 1400057,  Zeeland       :  391634,  Zuid-Holland  : 3840460 }
+			}
+		}
+		StringParameter spCapital {
+			IndexDomain: iProvince;
+			Definition: {
+				data 
+				{ Drenthe       : "Assen"           ,  Flevoland     : "Lelystad"        ,  Friesland     : "Leeuwarden"      ,
+				  Gelderland    : "Arnhem"          ,  Groningen     : "Groningen"       ,  Limburg       : "Maastricht"      ,
+				  Noord-Brabant : "'s-Hertogenbosch",  Noord-Holland : "Haarlem"         ,  Overijssel    : "Zwolle"          ,
+				  Utrecht       : "Utrecht"         ,  Zeeland       : "Middelburg"      ,  Zuid-Holland  : "Den Haag"         }
+			}
+		}
+		StringParameter spProvinceTooltip {
+			IndexDomain: iProvince;
+			Definition: {
+				formatstring("<h1>Details for %e:</h1>
+				<ul>
+				    <li><span style=\"font-weight: bold;\">Capital:</span><span>&nbsp%s</span></li>
+				    <li><span style=\"font-weight: bold;\">Inhabitants:</span><span>&nbsp%n</span></li>
+				</ul>", iProvince, spCapital(iProvince), pProvinceInhabitants(iProvince))
+			}
+		}
+	}
+}

@@ -1,0 +1,722 @@
+{
+  "version": "4.67.0",
+  "application": {
+    "aimms.widget.type": {
+      "literal": "application"
+    },
+    "browser.language": {
+      "aimms": {
+        "contents": [
+          "webui::ClientBrowserLanguage"
+        ]
+      }
+    },
+    "browser.name": {
+      "aimms": {
+        "contents": [
+          "webui::ClientBrowserName"
+        ]
+      }
+    },
+    "browser.timezone": {
+      "aimms": {
+        "contents": [
+          "webui::BrowserTimeZone"
+        ]
+      }
+    },
+    "browsername": {
+      "aimms": {
+        "contents": [
+          "webui::ClientBrowserName"
+        ]
+      }
+    },
+    "browsertimezone": {
+      "aimms": {
+        "contents": [
+          "webui::BrowserTimeZone"
+        ]
+      }
+    },
+    "ignoredst": {
+      "aimms": {
+        "contents": [
+          "webui::IgnoreDST"
+        ]
+      }
+    },
+    "pages": {
+      "literal": {
+        "name": "root",
+        "slug": "root",
+        "children": [
+          {
+            "name": "Main Project",
+            "slug": "main_project",
+            "children": [
+              {
+                "name": "home",
+                "slug": "home",
+                "type": "pagev2-grid",
+                "children": []
+              },
+              {
+                "name": "new page",
+                "type": "pagev2-grid",
+                "slug": "new_page",
+                "children": []
+              },
+              {
+                "name": "D3 GeoJSON",
+                "type": "pagev2-grid",
+                "slug": "d3_geojson",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "theme.classic": {
+      "literal": "NOT_ALLOWED"
+    },
+    "timezone": {
+      "aimms": {
+        "contents": [
+          "webui::DisplayTimeZone"
+        ]
+      }
+    },
+    "timezone.dst.readonly": {
+      "aimms": {
+        "contents": [
+          "webui::DefaultDSTSettingForDisplayTimeZone"
+        ]
+      }
+    }
+  },
+  "layouts/custom_65527878-f4da-4bea-8cd4-d74e7478b188": {
+    "definition": {
+      "literal": {
+        "componentName": "Grid",
+        "props": {
+          "gridTemplateColumns": "2fr 1fr",
+          "gridTemplateRows": "1fr 1fr 1fr",
+          "gridTemplateAreas": "\"area-a area-b\" \"area-a area-c\" \"area-a area-d\""
+        },
+        "items": [
+          {
+            "componentName": "WidgetArea",
+            "props": {
+              "gridArea": "area-a",
+              "name": "Area A",
+              "gridAutoFlow": "column"
+            }
+          },
+          {
+            "componentName": "WidgetArea",
+            "props": {
+              "gridArea": "area-b",
+              "name": "Area B",
+              "gridAutoFlow": "row"
+            }
+          },
+          {
+            "componentName": "WidgetArea",
+            "props": {
+              "gridArea": "area-c",
+              "name": "Area C",
+              "gridAutoFlow": "row"
+            }
+          },
+          {
+            "componentName": "WidgetArea",
+            "props": {
+              "gridArea": "area-d",
+              "name": "Area D",
+              "gridAutoFlow": "row"
+            }
+          }
+        ]
+      }
+    },
+    "displayName": {
+      "literal": "Layout10 Copy"
+    }
+  },
+  "pages/d3_geojson": {
+    "aimms.widget.type": {
+      "literal": "pagev2-grid"
+    },
+    "bindings": {
+      "literal": [
+        {
+          "widgetUri": "d3-geojson",
+          "gridArea": "area-a",
+          "dndId": "area-ad3-geojson0"
+        },
+        {
+          "widgetUri": "select province",
+          "gridArea": "area-b",
+          "dndId": "area-bselect province1"
+        },
+        {
+          "widgetUri": "table-province",
+          "gridArea": "area-c",
+          "dndId": "Unassigned widgetstable-province"
+        }
+      ]
+    },
+    "layoutId": {
+      "literal": "Layout10"
+    },
+    "widgets": {
+      "literal": [
+        {
+          "uri": "d3-geojson",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "select province",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "table-province",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        }
+      ]
+    }
+  },
+  "pages/home": {
+    "aimms.widget.type": {
+      "literal": "pagev2-grid"
+    },
+    "bindings": {
+      "literal": [
+        {
+          "widgetUri": "fdsafdsa",
+          "gridArea": "area-b",
+          "dndId": "area-bfdsafdsa0"
+        },
+        {
+          "widgetUri": "button",
+          "gridArea": "area-c",
+          "dndId": "area-cbutton1"
+        },
+        {
+          "widgetUri": "barchart-example",
+          "gridArea": "area-a",
+          "dndId": "area-abarchart-example2"
+        },
+        {
+          "widgetUri": "table-pvalues",
+          "gridArea": "area-d",
+          "dndId": "Unassigned widgetstable-pvalues"
+        }
+      ]
+    },
+    "layoutId": {
+      "literal": "Layout8"
+    },
+    "widgets": {
+      "literal": [
+        {
+          "uri": "button",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "fdsafdsa",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "barchart-example",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "table-pvalues",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        }
+      ]
+    }
+  },
+  "pages/new_page": {
+    "aimms.widget.type": {
+      "literal": "pagev2-grid"
+    },
+    "bindings": {
+      "literal": [
+        {
+          "widgetUri": "barchart_1",
+          "gridArea": "Unassigned widgets",
+          "dndId": "area-abarchart_10"
+        },
+        {
+          "widgetUri": "barchart_2",
+          "gridArea": "area-a",
+          "dndId": "area-abarchart1"
+        },
+        {
+          "widgetUri": "barchart",
+          "gridArea": "Unassigned widgets",
+          "dndId": "area-unassigned_37fae32f-ed75-4920-9f85-c5feb9468fb0"
+        }
+      ]
+    },
+    "layoutId": {
+      "literal": "Layout9"
+    },
+    "widgets": {
+      "literal": [
+        {
+          "uri": "barchart",
+          "layoutInfo": {
+            "width": "2",
+            "height": "1"
+          }
+        },
+        {
+          "uri": "barchart_1",
+          "layoutInfo": {}
+        },
+        {
+          "uri": "barchart_2",
+          "layoutInfo": {}
+        }
+      ]
+    }
+  },
+  "widgets/barchart": {
+    "aimms.widget.type": {
+      "literal": "barchart"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "pValue"
+        ]
+      }
+    },
+    "contents.partition": {
+      "literal": {
+        "header": [
+          "iIndex",
+          "iEnergyComponentTarget"
+        ],
+        "grouped": [],
+        "stacked": [
+          "iEnergyComponentSource"
+        ],
+        "aggregated": [
+          "<IDENTIFIER-SET>"
+        ]
+      }
+    },
+    "name": {
+      "literal": "barchart"
+    },
+    "views": {
+      "literal": {}
+    },
+    "views.__display_order__": {
+      "literal": [
+        "views.0"
+      ]
+    },
+    "views.0.type": {
+      "literal": "view"
+    }
+  },
+  "widgets/barchart_1": {
+    "aimms.widget.type": {
+      "literal": "combinationchart"
+    },
+    "contents.__display_order__": {
+      "literal": [
+        "contents.0"
+      ]
+    },
+    "contents.0.chart.type": {
+      "literal": "column"
+    },
+    "contents.0.identifier": {
+      "literal": {
+        "identifier": "pValue",
+        "slice": [
+          {
+            "index": "iIndex",
+            "type": "free",
+            "value": "iIndex"
+          }
+        ]
+      }
+    },
+    "contents.partition": {
+      "literal": {
+        "header": [
+          "<IDENTIFIER-SET>",
+          "iIndex"
+        ],
+        "grouped": [],
+        "stacked": [],
+        "aggregated": []
+      }
+    },
+    "name": {
+      "literal": "barchart (1)"
+    },
+    "views": {
+      "literal": {}
+    },
+    "views.__display_order__": {
+      "literal": [
+        "views.0",
+        "views.1"
+      ]
+    },
+    "views.0.type": {
+      "literal": "view"
+    },
+    "views.1.type": {
+      "literal": "template"
+    }
+  },
+  "widgets/barchart_2": {
+    "aimms.widget.type": {
+      "literal": "combinationchart"
+    },
+    "contents.__display_order__": {
+      "literal": [
+        "contents.0"
+      ]
+    },
+    "contents.0.chart.type": {
+      "literal": "column"
+    },
+    "contents.0.identifier": {
+      "literal": {
+        "identifier": "pValue",
+        "slice": [
+          {
+            "index": "iIndex",
+            "type": "free",
+            "value": "iIndex"
+          }
+        ]
+      }
+    },
+    "contents.partition": {
+      "literal": {
+        "header": [
+          "iIndex"
+        ],
+        "grouped": [],
+        "stacked": [],
+        "aggregated": [
+          "<IDENTIFIER-SET>"
+        ]
+      }
+    },
+    "name": {
+      "literal": "barchart (2)"
+    },
+    "views": {
+      "literal": {}
+    },
+    "views.__display_order__": {
+      "literal": [
+        "views.0"
+      ]
+    },
+    "views.0.type": {
+      "literal": "view"
+    }
+  },
+  "widgets/barchart-example": {
+    "aimms.widget.type": {
+      "literal": "D3 Barchart"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "pValue"
+        ]
+      }
+    },
+    "name": {
+      "literal": "barchart-example"
+    },
+    "store_selection": {
+      "aimms": {
+        "contents": [
+          "epSelectedIndex"
+        ],
+        "slices": []
+      }
+    }
+  },
+  "widgets/button": {
+    "action": {
+      "literal": {
+        "type": "procedure",
+        "value": "prUpdateBarChartData"
+      }
+    },
+    "aimms.widget.type": {
+      "literal": "button"
+    },
+    "name": {
+      "literal": "button"
+    },
+    "title": {
+      "literal": "Randomly change bar chart values"
+    }
+  },
+  "widgets/d3-geojson": {
+    "aimms.widget.type": {
+      "literal": "D3 GeoJSON"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "pProvinceInhabitants"
+        ],
+        "slices": [
+          {
+            "identifier": "pProvinceInhabitants",
+            "slice": [
+              {
+                "index": "iProvince",
+                "type": "free",
+                "value": "iProvince"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "geojson.feature_key": {
+      "literal": "properties###statnaam"
+    },
+    "geojson.file": {
+      "aimms": {
+        "contents": [
+          "spProvincesGeoJson"
+        ]
+      }
+    },
+    "name": {
+      "literal": "d3-geojson"
+    },
+    "store_selection": {
+      "aimms": {
+        "contents": [
+          "epSelectedProvince"
+        ],
+        "slices": []
+      }
+    },
+    "tooltip.text": {
+      "aimms": {
+        "contents": [
+          "spProvinceTooltip"
+        ],
+        "slices": [
+          {
+            "identifier": "spProvinceTooltip",
+            "slice": [
+              {
+                "index": "iProvince",
+                "type": "free",
+                "value": "iProvince"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "widgets/fdsafdsa": {
+    "aimms.widget.type": {
+      "literal": "table"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "epSelectedIndex"
+        ]
+      }
+    },
+    "custom.column.widths": {
+      "literal": [
+        {
+          "type": "rowHeader",
+          "colKey": "<IDENTIFIER-SET>",
+          "width": 21.72
+        },
+        {
+          "type": "colHeader",
+          "colKey": {},
+          "width": 31.86
+        }
+      ]
+    },
+    "name": {
+      "literal": "fdsafdsa"
+    },
+    "views": {
+      "literal": {}
+    },
+    "views.__display_order__": {
+      "literal": [
+        "views.0",
+        "views.1"
+      ]
+    },
+    "views.0.type": {
+      "literal": "template"
+    },
+    "views.1.type": {
+      "literal": "view"
+    }
+  },
+  "widgets/select province": {
+    "aimms.widget.type": {
+      "literal": "selectionbox-v2"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "epSelectedProvince"
+        ],
+        "slices": []
+      }
+    },
+    "name": {
+      "literal": "select province"
+    }
+  },
+  "widgets/table-province": {
+    "aimms.widget.type": {
+      "literal": "table"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "spCapital",
+          "pProvinceInhabitants"
+        ],
+        "prefix": "aimms",
+        "slices": [
+          {
+            "identifier": "pProvinceInhabitants",
+            "slice": [
+              {
+                "index": "iProvince",
+                "type": "element-parameter",
+                "value": "epSelectedProvince"
+              }
+            ]
+          },
+          {
+            "identifier": "spCapital",
+            "slice": [
+              {
+                "index": "iProvince",
+                "type": "element-parameter",
+                "value": "epSelectedProvince"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "custom.column.widths": {
+      "literal": [
+        {
+          "type": "rowHeader",
+          "colKey": "<IDENTIFIER-SET>",
+          "width": 33.49
+        },
+        {
+          "type": "colHeader",
+          "colKey": {},
+          "width": 40.84
+        }
+      ]
+    },
+    "name": {
+      "literal": "table-province"
+    },
+    "views": {
+      "literal": {}
+    }
+  },
+  "widgets/table-pvalues": {
+    "aimms.widget.type": {
+      "literal": "table"
+    },
+    "contents": {
+      "aimms": {
+        "contents": [
+          "pValue"
+        ]
+      }
+    },
+    "contents.partition": {
+      "literal": {
+        "rowHeader": [
+          "iIndex"
+        ],
+        "colHeader": [],
+        "aggregated": [
+          "<IDENTIFIER-SET>"
+        ]
+      }
+    },
+    "custom.column.widths": {
+      "literal": [
+        {
+          "type": "colHeader",
+          "colKey": {},
+          "width": 20.83
+        }
+      ]
+    },
+    "name": {
+      "literal": "table-pvalues"
+    },
+    "views": {
+      "literal": {}
+    },
+    "views.__display_order__": {
+      "literal": [
+        "views.0"
+      ]
+    },
+    "views.0.type": {
+      "literal": "view"
+    }
+  }
+}
